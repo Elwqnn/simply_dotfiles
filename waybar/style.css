@@ -1,0 +1,134 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(64, 42, 58, 0.664);
+    color: #D9CAC1;
+}
+
+tooltip {
+    background: #402A3A;
+    border-radius: 0px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #402A3A;
+}
+
+#workspaces button {
+    padding: 10px;
+    color: #313244;
+    margin-right: 10px;
+}
+
+#workspaces button.active {
+    color: #D9CAC1;
+}
+
+#workspaces button.focused {
+    color: #a6adc8;
+    background: #D9CAC1;
+    border-radius: 10px;
+}
+
+#workspaces button.urgent {
+    color: #11111b;
+    background: #D9CAC1;
+    border-radius: 10px;
+}
+
+#workspaces button:hover {
+    background: #11111b;
+    color: #D9CAC1;
+    border-radius: 10px;
+}
+
+#custom-language,
+#custom-updates,
+#custom-caffeine,
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#workspaces,
+#tray,
+#backlight {
+    background: rgba(210, 197, 188, 0.1);
+    padding: 3px 7px;
+    margin: 0px 0px;
+}
+
+#tray {
+    border-radius: 0px;
+    margin-right: 0px;
+}
+
+#workspaces {
+    background: #402A3A;
+    border-radius: 0px;
+    margin-left: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#custom-caffeine {
+    color: #D9CAC1;
+    border-radius: 0px;
+    border-right: 0px;
+    margin-left: 0px;
+}
+
+#custom-language {
+    color: #D9CAC1;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#custom-updates {
+    color: #D9CAC1;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#window {
+    border-radius: 0px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+#clock {
+    color: #D9CAC1;
+    border-radius: 0px;
+    margin-left: 0px;
+}
+
+#network {
+    color: #D9CAC1;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#pulseaudio {
+    color: #D9CAC1;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#battery {
+    color: #D9CAC1;
+    border-radius: 0px;
+    margin-right: 0px;
+    border-left: 0px;
+}
+
+#backlight {
+    color: #D9CAC1;
+    border-left: 0px;
+    border-right: 0px;
+}
