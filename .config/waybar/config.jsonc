@@ -1,0 +1,168 @@
+{
+    "layer": "top",
+    "position": "top",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 44,
+    "modules-left": ["tray", "wlr/workspaces","hyprland/window"],
+    "modules-center": ["mpris"],
+    "modules-right": ["custom/updates","bluetooth", "network", "backlight","pulseaudio","pulseaudio#microphone", "battery", "clock"],
+    "hyprland/window": {
+        "format": "{}"
+    },
+
+    "wlr/workspaces": {
+        "on-click": "activate",
+        "format": "{icon}",
+        "disable-scroll": true,
+        "sort-by-number": true,
+        "persistent_workspaces": {
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+			"6": []
+		},
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六"
+        }
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+
+    "clock": {
+        "format": "{: %H:%M  }",
+        "interval": 60,
+        "format-alt":"{:  %a %e %b  }",
+        "tooltip-format": "<big>{:%d %B %Y}</big>\n\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", ""],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 6
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": true,
+        "format-muted": " Muted",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    },
+
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": "Ethernet ",
+        "tooltip-format-ethernet": "{ifname} via {gwaddr}",
+        "tooltip-format-wifi": "{essid} - {signalStrength}%",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname} on {essid}"
+    },
+
+    "bluetooth": {
+	    "format": " {status}",
+	    "format-connected": " {num_connections}",
+        "on-click": "blueberry",
+	    "tooltip-format": "{device_alias}",
+	    "tooltip-format-connected": " {device_enumerate}",
+	    "tooltip-format-enumerate-connected": "{device_alias}"
+    },
+
+    "mpris": {
+      "title-len": 35,
+      "interval" : 60,
+      "dynamic-len": 35,
+      "max-len": 55,
+      "format": "{player_icon} {artist} : {title} - [{length}]",
+      "format-paused": "{status_icon} {artist} : {title} - [{length}]",
+      "player-icons": {
+        "default": "▶",
+        "mpv": "🎵",
+        "spotify": "",
+        "firefox": ""
+      },
+      "status-icons": {
+        "paused": ""
+      },
+      "ignored-players": ["vlc"]
+    },
+
+    "custom/updates": {
+      "format": " {}",
+      "interval" : 7200,
+      "exec" : "checkupdates | wc -l"
+    }
+}
+
+
+   // "mpris": {
+   //    "format": "DEFAULT: {player_icon} {artist} : {title} - [{length}]",
+   //    "format-paused": "DEFAULT: {status_icon} {artist} : {title} - [{length}]",
+   //    "player-icons": {
+   //      "default": "▶",
+   //      "mpv": "🎵"
+   //    },
+   //    "status-icons": {
+   //      "paused": "⏸"
+   //    },
+   //    "ignored-players": ["firefox"]
+   //  },
+
+    // "custom/spotify": {
+    //   "exec": "/usr/bin/python3 ~/.config/hypr/mediaplayer.py --player spotify",
+    //   "format": " {}",
+    //   "return-type": "json",
+    //   "on-click": "spotifyctl -q playpause",
+    //   "on-scroll-up": "spotifyctl -q next",
+    //   "on-scroll-down": "spotifyctl -q previous"
+    //  },
+    //

@@ -1,0 +1,44 @@
+window {
+    font-family: monospace;
+    font-size: 14pt;
+    color: #cdd6f4; /* text */
+    background-color: rgba(30, 30, 46, 0.2);
+}
+
+button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+    border: none;
+    box-shadow: none;
+    outline: 0;
+    background-color: rgba(30, 30, 46, 0);
+}
+
+button:focus {
+    background-size: 40%;
+}
+
+button:focus {
+    background-size: 40%;
+}
+
+#lock {
+    background-image: image(url("./lock.png"));
+}
+
+#logout {
+    background-image: image(url("./logout.png"));
+}
+
+#suspend {
+    background-image: image(url("./sleep.png"));
+}
+
+#shutdown {
+    background-image: image(url("./power.png"));
+}
+
+#reboot {
+    background-image: image(url("./restart.png"));
+}

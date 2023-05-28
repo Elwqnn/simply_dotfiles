@@ -1,0 +1,7 @@
+audio.play_bitrate_non_metered_migrated=true
+audio.sync_bitrate_enumeration=4
+audio.allow_downgrade=false
+audio.play_bitrate_enumeration=4
+ui.right_panel_content=0
+audio.play_bitrate_non_metered_enumeration=4
+app.player.volume=47213

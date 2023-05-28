@@ -1,0 +1,167 @@
+* {
+    /* border: none; */
+    border-radius: 0px;
+    font-family: "CaskaydiaCove NF";
+    font-weight: 500;
+    font-size: 14px;
+    min-height: 0;
+  }
+
+  window#waybar {
+    background: rgba(18, 18, 30, 0.6);
+    color: #cdd6f4;
+    opacity: 1;
+  }
+
+  tooltip {
+    background: #12121e;
+    border-radius: 7px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #11111b;
+  }
+
+  #workspaces button {
+    padding: 5px;
+    color: #59597e;
+    margin-right: 5px;
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  #workspaces button.active {
+    color: #eca24d;
+    background: #1e1e2e;
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  #workspaces button.focused {
+    color: #ee5c49;
+    background: #1e1e2e;
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  #workspaces button.urgent {
+    color: #ee5c49;
+    background: #1e1e2e;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  #workspaces button:hover {
+    color: #eca24d;
+    background: #1e1e2e;
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  #window,
+  #clock,
+  #battery,
+  #mpris,
+  #pulseaudio,
+  #custom-updates,
+  #network,
+  #bluetooth,
+  #workspaces,
+  #tray,
+  #backlight {
+    background: #1e1e2e;
+    opacity: 0.9;
+    padding: 0px 7px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #backlight {
+    border-radius: 7px 0px 0px 7px;
+  }
+
+  #pulseaudio {
+    color: #89b4fa;
+    border-radius: 0px;
+    border-left: 0px;
+    border-right: 0px;
+  }
+
+  #pulseaudio.microphone {
+    color: #cba6f7;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px 7px 7px 0px;
+    margin-right: 5px;
+  }
+
+  #tray {
+    border-radius: 7px;
+    margin-left: 5px;
+  }
+
+  #workspaces {
+    background: #1e1e2e;
+    border-radius: 7px;
+    margin-left: 10px;
+    padding-right: 0px;
+    padding-left: 5px;
+  }
+
+  #window {
+    border-radius: 7px;
+    margin-left: 10px;
+    margin-right: 60px;
+  }
+
+  #clock {
+    color: #fab387;
+    border-radius: 7px;
+    margin-right: 5px;
+    padding-right: 0px;
+    border-right: 0px;
+  }
+
+  #network {
+    color: #f9e2af;
+    border-radius: 7px;
+    margin-right: 5px;
+    border-left: 0px;
+    border-right: 0px;
+  }
+
+  #bluetooth {
+    color: #89b4fa;
+    border-radius: 7px;
+    margin-right: 5px;
+  }
+
+  #battery {
+    color: #a6e3a1;
+    border-radius: 7px;
+    margin-right: 5px;
+    border-left: 0px;
+  }
+
+  #custom-spotify {
+    border-radius: 7px;
+    margin-right: 5px;
+    border-right: 0px;
+  }
+
+  #mpris {
+    border-radius: 7px;
+    margin-right: 5px;
+    border-right: 0px;
+  }
+
+  #custom-updates {
+    color: #ff7a91;
+    border-radius: 7px;
+    margin-right: 5px;
+  }
