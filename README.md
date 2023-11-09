@@ -19,10 +19,18 @@ cp -r simply_dotfiles/.config/* ~/.config/ && cp -r simply_dotfiles/wallpapers ~
 
 3. Thats it! All your programs will be themed like the ones in the screenshot above. You can restart your PC just in case some apps don't reload the configs (like Dunst).
 
+# Dependencies
+Here's a list of all the main dependencies I use with this config. (working on it)
+```
+...
+```
+
 # What I use
 **Operating System** - [EndeavourOS](https://endeavouros.com) (arch based)
 
 **Window Manager** - [Hyprland](https://hyprland.org)
+
+**App Launcher** - [Tofi](https://github.com/philj56/tofi)
 
 **Status Bar** - [Waybar](https://github.com/Alexays/Waybar)
 
@@ -32,6 +40,6 @@ cp -r simply_dotfiles/.config/* ~/.config/ && cp -r simply_dotfiles/wallpapers ~
 
 **Notifications** - [Dunst](https://dunst-project.org)
 
-**Audio Visualizer** - CAVA
+**Wallpapers** - [swww](https://github.com/Horus645/swww)
 
 **System Monitor** - Btop
