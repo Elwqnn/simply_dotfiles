@@ -18,6 +18,8 @@ alias dot='code ~/.config'
 alias vim='nvim'
 alias bt='systemctl start bluetooth.service'
 
+bindkey "^[[3~" delete-char
+
 # ex - archive extractor
 # usage: ex <file>
 ex () {
