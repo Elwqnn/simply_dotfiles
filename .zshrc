@@ -1,18 +1,8 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)               # Include hidden files.
-
-POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 alias m='make'
 alias mr='make re'
@@ -21,13 +11,19 @@ alias mmc='make && make clean'
 alias mrmc='make re && make clean'
 alias gp='git push'
 alias c='clear'
-alias ls='exa --icons --color=auto'
+alias ls='exa --color=auto'
 alias ll='ls -la'
 alias grep='grep --color=auto'
-alias checkupdates='checkupdates && paru -Qua'
 alias dot='code ~/.config'
-alias bt='~/.config/hypr/scripts/fix_bt.sh'
-alias h='Hyprland'
+alias vim='nvim'
+alias test='yarn build ; node dist/test.js'
+alias sw='cd ~/0_Repos/Reecall/api_next/ ; yarn dev'
+alias csm='cd ~/0_Repos/Reecall/app-csm/ ; yarn dev'
+alias cs='code ~/Documents/cheatsheets_reecall.jsonc'
+alias format='cd ~/0_Repos/Reecall/rcl.jsonFormatter ; code .'
+alias we='cd ~/0_Repos/Reecall/rcl.workEnv ; bun run dev'
+alias bt='systemctl start bluetooth.service'
+alias rd='~/.config/waybar/scripts/randwall.sh'
 
 # # ex - archive extractor
 # # usage: ex <file>
@@ -60,16 +56,17 @@ SAVEHIST=100
 KEYTIMEOUT=5
 
 # Environment variables
-source ~/.profile
 export SHELL=zsh
 
-if [ "$TERM" = "linux" ]; then
-  [[ ! -f ~/.p10k-tty.zsh ]] || source ~/.p10k-tty.zsh
-else
-  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
-# source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+plugins=(
+    fzf
+    fzf-tab
+    history-substring-search
+    colored-man-pages
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+
+eval "$(starship init zsh)"

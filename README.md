@@ -1,4 +1,4 @@
-<h1 style="text-align: center;"> Eww+Hyprland </h1>
+<h1 style="text-align: center;"> My -simple- dotfiles </h1>
 
 ![](https://github.com/anantnrg/hypr_eww/blob/main/assets/hypr_eww.png?raw=true)
 
@@ -18,19 +18,15 @@ cp -r hypr_eww/.config/* ~/.config/
 3. Thats it! All your programs will be themed like the ones in the screenshot above. You can restart your PC just in case some apps don't reload the configs (like Dunst).
 
 # What I use
-**Color Scheme** - [Rose Pine Moon](https://rosepinetheme.com)
-
-**Operating System** - [Arch Linux](https://archlinux.org)
+**Operating System** - [EndeavourOS](https://endeavouros.com) (arch based)
 
 **Window Manager** - [Hyprland](https://hyprland.org)
 
-**Status Bar** - [Eww](https://elkowar.github.io/eww)
+**Status Bar** - [Waybar](https://github.com/Alexays/Waybar)
 
 **Terminal** - [Kitty](https://github.com/kovidgoyal/kitty)
 
-**Text Editor** - [NeoVim](https://neovim.io)
-
-**Desktop Clock** - Eww
+**Text Editor** - [NeoVim](https://neovim.io) / [Code - Oss](https://github.com/microsoft/vscode)
 
 **Notifications** - [Dunst](https://dunst-project.org)
 

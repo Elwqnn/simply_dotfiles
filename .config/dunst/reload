@@ -1,0 +1,13 @@
+#!/bin/bash
+pkill dunst
+dunst -config ~/.config/dunst/dunstrc &
+
+dunstify -i critical "Test message: critical test 1"
+dunstify -i normal "Test message: normal test 2"
+dunstify -i low "Test message: low test 3"
+dunstify -i critical "Test message: critical test 4"
+dunstify -i normal "Test message: normal test 5"
+dunstify -i low "Test message: low test 6"
+dunstify -i critical "Test message: critical test 7"
+dunstify -i normal "Test message: normal test 8"
+dunstify -i low "Test message: low test 9"
