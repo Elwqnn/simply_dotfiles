@@ -16,19 +16,11 @@ alias ll='ls -la'
 alias grep='grep --color=auto'
 alias dot='code ~/.config'
 alias vim='nvim'
-alias test='yarn build ; node dist/test.js'
-alias sw='cd ~/0_Repos/Reecall/api_next/ ; yarn dev'
-alias csm='cd ~/0_Repos/Reecall/app-csm/ ; yarn dev'
-alias cs='code ~/Documents/cheatsheets_reecall.jsonc'
-alias format='cd ~/0_Repos/Reecall/rcl.jsonFormatter ; code .'
-alias we='cd ~/0_Repos/Reecall/rcl.workEnv ; bun run dev'
 alias bt='systemctl start bluetooth.service'
-alias rd='~/.config/waybar/scripts/randwall.sh'
 
-# # ex - archive extractor
-# # usage: ex <file>
-ex ()
-{
+# ex - archive extractor
+# usage: ex <file>
+ex () {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
@@ -50,6 +42,12 @@ ex ()
   fi
 }
 
+# genpasswd - password generator
+# usage: genpasswd <number>
+genpasswd() {
+  date +%s | sha256sum | base64 | head -c$1 ; echo
+}
+
 HISTFILE=~/.zsh_history
 HISTSIZE=100
 SAVEHIST=100
@@ -58,11 +56,10 @@ KEYTIMEOUT=5
 # Environment variables
 export SHELL=zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 plugins=(
     fzf
     fzf-tab
+    git
     history-substring-search
     colored-man-pages
     zsh-autosuggestions
