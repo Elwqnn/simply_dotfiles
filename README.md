@@ -1,8 +1,8 @@
 <h1 style="text-align: center;"> My -simple- dotfiles </h1>
 
-![](https://github.com/ElwannGuillemot/simply_dotfiles/main/media/neutral.png?raw=true)
-![](https://github.com/ElwannGuillemot/simply_dotfiles/main/media/neutral-2.png?raw=true)
-![](https://github.com/ElwannGuillemot/simply_dotfiles/main/media/neofetch.png?raw=true)
+![](https://github.com/ElwannGuillemot/simply_dotfiles/blob/main/media/neutral.png?raw=true)
+![](https://github.com/ElwannGuillemot/simply_dotfiles/blob/main/media/neutral-2.png?raw=true)
+![](https://github.com/ElwannGuillemot/simply_dotfiles/blob/main/media/neofetch.png?raw=true)
 
 # Getting Started
 To get started, you can copy the config files in this repository to your machine. To do that, you can follow these steps:
