@@ -20,9 +20,9 @@ cp -r simply_dotfiles/.config/* ~/.config/ && cp -r simply_dotfiles/wallpapers ~
 3. Thats it! All your programs will be themed like the ones in the screenshot above. You can restart your PC just in case some apps don't reload the configs (like Dunst).
 
 # Dependencies (wip)
-Here's a list of all the main dependencies I use with this config. (working on it)
+Here's a list of (nearby) all the main dependencies I use with this config.
 ```
-...
+yay -S waybar-hyprland kitty tofi wofi dunst swww hyprshot imv nmtui nwg-look otf-font-awesome pamixer pavucontrol starship thunar wf-recorder wlogout wlsunset wofi-emoji brightnessctl xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 ```
 
 # What I use
