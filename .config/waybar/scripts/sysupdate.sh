@@ -22,10 +22,11 @@ echo "$all"
 if [ $upd -eq 0 ] ; then
     echo " Packages are up to date"
 else
-    echo "Off: $ofc | AUR: $aur"
+    # echo "Off: $ofc | AUR: $aur"
+    echo "Pending updates : $all"
 fi
 
 # Trigger upgrade
 if [ "$1" == "up" ] ; then
-    kitty --title systemupdate sh -c 'yay -Syu'
+    kitty --title systemupdate sh -c 'yay -Syu' && echo "$all"
 fi

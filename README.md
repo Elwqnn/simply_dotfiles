@@ -19,7 +19,7 @@ cp -r simply_dotfiles/.config/* ~/.config/ && cp -r simply_dotfiles/wallpapers ~
 
 3. Thats it! All your programs will be themed like the ones in the screenshot above. You can restart your PC just in case some apps don't reload the configs (like Dunst).
 
-# Dependencies
+# Dependencies (wip)
 Here's a list of all the main dependencies I use with this config. (working on it)
 ```
 ...
