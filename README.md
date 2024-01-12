@@ -4,7 +4,7 @@
 ![](https://github.com/ElwannGuillemot/simply_dotfiles/blob/main/media/neutral-2.png?raw=true)
 ![](https://github.com/ElwannGuillemot/simply_dotfiles/blob/main/media/neofetch.png?raw=true)
 
-# Getting Started
+# Getting Started<>
 To get started, you can copy the config files in this repository to your machine. To do that, you can follow these steps:
 
 1. Clone this repository

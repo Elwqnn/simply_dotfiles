@@ -1,24 +1,37 @@
-# indicator
-# no-unlock-indicator
-# daemonize
+ignore-empty-password
+daemonize
+screenshots
+indicator
+clock
+datestr=%d/%m/%Y
 indicator-caps-lock
-# datestr=%A
-image=$HOME/Pictures/wallpapers/rosepine.jpg
-scaling=fill
-font=UbuntuMono
-font-size=20
-
-# Ring
-indicator-radius=115
-# line-uses-ring
-line-color=#3b4252
-text-color=#d8dee9
-inside-color=#2e344098
-inside-ver-color=#5e81ac
-line-ver-color=#5e81ac
-ring-ver-color=#5e81ac98
-ring-color=#4c566a
-key-hl-color=#5e81ac
-separator-color=#4c566a
-layout-text-color=#eceff4
-line-wrong-color=#d08770
+bs-hl-color=80aa9ecc
+caps-lock-bs-hl-color=80aa9ecc
+caps-lock-key-hl-color=d3869bcc
+font=JetBrains Mono
+font-size=24
+indicator-idle-visible
+indicator-radius=100
+indicator-thickness=7
+inside-color=32302f66
+inside-clear-color=8bba7f66
+inside-caps-lock-color=f2853466
+inside-ver-color=80aa9e66
+inside-wrong-color=f2594b66
+key-hl-color=b0b846cc
+layout-bg-color=32302f00
+layout-text-color=e2cca9
+line-color=00000000
+ring-color=f28534cc
+ring-clear-color=8bba7fcc
+ring-caps-lock-color=f28534cc
+ring-ver-color=80aa9ecc
+ring-wrong-color=f2594bcc
+separator-color=00000000
+text-color=e2cca9
+text-clear-color=
+text-caps-lock-color=e2cca9
+text-ver-color=e2cca9
+text-wrong-color=e2cca9
+effect-blur=70x5
+effect-vignette=0.5:0.5

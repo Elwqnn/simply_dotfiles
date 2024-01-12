@@ -1,142 +1,25 @@
 {
   "layer": "top",
-  "height": 35,
+  "output": ["eDP-1"],
+  "height": 30,
   "spacing": 0,
-
   "modules-left": [
-    "custom/launcher",
-    // "cpu",
-    // "memory",
-    "custom/window-name"
+    "clock",
+    "hyprland/workspaces"
   ],
-
   "modules-center": [
-    // "hyprland/workspaces",
-    "custom/playerctl"
+    "custom/window"
   ],
-
   "modules-right": [
-    "custom/updates",
-    "bluetooth",
-    "network",
-    "backlight",
-    "pulseaudio",
-    "battery",
     "custom/dot",
-    "clock"
+    "battery",
+    "custom/updates",
+    "pulseaudio",
+    "backlight",
+    "bluetooth",
+    "network"
   ],
 
-  "custom/playerctl": {
-    "format": "{icon}  <span>{}</span>",
-    "return-type": "json",
-    "max-length": 55,
-    "exec": "playerctl -a metadata --format '{\"text\": \"  {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-    "on-click-middle": "playerctl previous",
-    "on-click": "playerctl play-pause",
-    "on-click-right": "playerctl next",
-    "format-icons": {
-      "Paused": "<span foreground='#ff005f'></span>",
-      "Playing": "<span foreground='#ff005f'></span>"
-    }
-  },
-  "custom/launcher": {
-    "format": "󰣇",
-    "tooltip": false,
-    "on-click" : "wofi"
-  },
-  "cpu": {
-    "interval": 10,
-    "format": " {usage}% ",
-    "max-length": 10,
-    "on-click-right": "btop"
-  },
-  "memory": {
-    "interval": 30,
-    "format": " {}% ",
-    "format-alt": " {used:0.1f}G",
-    "max-length": 10,
-    "on-click-right": "btop"
-  },
-  "custom/uptime": {
-    "format": " {}",
-    "format-alt": " {}",
-    "tooltip": false,
-    "interval": 60,
-    "exec": "uptime | awk '{print $3}' | tr -d ','"
-  },
-  "custom/window-name": {
-    "format": "{}",
-    "tooltip": false,
-    "interval": 1,
-    "exec": "hyprctl activewindow | grep class | awk '{print $2}'"
-  },
-  "hyprland/workspaces": {
-    "all-outputs": true,
-    "active-only": true,
-    "on-click": "activate",
-    "format": "{icon}",
-    "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "6": "",
-      "7": "",
-      "8": "",
-      "9": "",
-      "urgent": "",
-      "active": "",
-      "default": ""
-    }
-  },
-  "tray": {
-    "icon-size": 16,
-    "spacing": 8
-  },
-  "custom/updates": {
-    "format": " {}",
-    "interval": 3600,
-    "exec": "~/.config/waybar/scripts/sysupdate.sh",
-    "on-click": "~/.config/waybar/scripts/sysupdate.sh up"
-  },
-  "bluetooth": {
-  	"format": "",
-  	"format-disabled": "",
-  	"format-connected": " {num_connections}",
-    "tooltip-format-connected": "{device_alias}",
-    "tooltip-format-connected-battery": "{device_alias} {device_battery_percentage}%",
-  	// "tooltip-format": "{controller_alias}\t{controller_address}",
-  	// "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-  	// "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click-right": "~/.config/waybar/scripts/bluetooth_ctl.sh",
-    "on-click": "blueman-manager"
-  },
-  "network": {
-    "format-wifi": "󰒢 {essid}",
-    "on-click": "kitty nmtui",
-    "format-ethernet": " wired",
-    "tooltip-format": "{essid} {signalStrength}%",
-    "format-disconnected": ""
-  },
-  "backlight": {
-    "device": "amdgpu_bl1",
-    "format": "{icon} {percent}%",
-    "tooltip": false,
-    "format-icons": ["","","","","","","","",""]
-  },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰸈 Muted",
-    "on-click": "pamixer -t",
-    "on-click-right": "pavucontrol",
-    "on-scroll-up": "pamixer -i 5",
-    "on-scroll-down": "pamixer -d 5",
-    "scroll-step": 5,
-    "format-icons": {
-      "default": ["󰝟","","󰕾",""]
-    }
-  },
   "battery": {
     "bat": "BAT0",
     "interval": 30,
@@ -144,21 +27,77 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon} {capacity}%",
-    "format-charging": "{icon} {capacity}%",
-    "format-icons": {
-    "default": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
-    "charging": ["󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"],
-    "tooltip": false
-    }
+    "format": "{capacity}%"
+  },
+  "custom/window": {
+    "format": "{}",
+    "tooltip": false,
+    "interval": 1,
+    "exec": "hyprctl activewindow | grep class | awk '{print $2}'"
   },
   "clock": {
-    "format": "<b>{:%H:%M}</b>",
-    "format-alt": "<b>{:%a %d %B}</b>",
-    "tooltip-format": "{calendar}"
+    "format": "{:%H:%M}",
+    "format-alt": "  {:%d/%m/%Y}",
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "format": {
+        "months": "<span color='#D4BE98'><b>{}</b></span>",
+        "days": "<span color='#D4BE98'><b>{}</b></span>",
+        "weeks": "<span color='#89B482'><b>W{}</b></span>",
+        "weekdays": "<span color='#D8A657'><b>{}</b></span>",
+        "today": "<span color='#EA6962'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "network": {
+    "format-wifi": "  {essid}",
+    "on-click": "kitty nmtui",
+    "format-ethernet": "wired",
+    "tooltip-format": "{essid} {signalStrength}%",
+    "format-disconnected": "  Deco"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "on-click": "pamixer -t",
+    "on-click-right": "pavucontrol",
+    "format-icons": { "default": ["","",""] }
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "",
+    "format-connected": " {num_connections}",
+    "tooltip-format-connected": "{device_alias}",
+    "tooltip-format-connected-battery": "{device_alias} {device_battery_percentage}%",
+    "on-click-right": "~/.config/waybar/scripts/bluetooth_ctl.sh",
+    "on-click": "blueman-manager"
+  },
+  "custom/updates": {
+    "format": " {}",
+    "tooltip": false,
+    "interval": 3600,
+    "exec": "~/.config/waybar/scripts/sysupdate.sh",
+    "on-click": "~/.config/waybar/scripts/sysupdate.sh up"
   },
   "custom/dot": {
-    "format": "",
+    "format": "",
     "tooltip": false,
     "on-click": "~/.config/waybar/scripts/randwall.sh"
   }
