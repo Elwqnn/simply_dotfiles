@@ -1,3 +1,4 @@
-function dot --wraps='code ~/.config' --description 'alias dot=code ~/.config'
-  code ~/.config $argv
+function dot --wraps='codium ~/.config' --description 'alias dot codium ~/.config'
+  codium ~/.config $argv
+        
 end

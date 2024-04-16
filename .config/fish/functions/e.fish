@@ -1,4 +1,4 @@
-function e --wraps='code .' --description 'alias e=code .'
-  code . $argv
+function e --wraps='codium .' --description 'alias e codium .'
+  codium . $argv
         
 end

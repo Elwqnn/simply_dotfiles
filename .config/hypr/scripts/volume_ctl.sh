@@ -1,54 +1,60 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-# You can call this script like this:
-# $ ./volumeControl.sh up
-# $ ./volumeControl.sh down
-# $ ./volumeControl.sh mute
-
-# Script modified from these wonderful people:
-# https://github.com/dastorm/volume-notification-dunst/blob/master/volume.sh
-# https://gist.github.com/sebastiencs/5d7227f388d93374cebdf72e783fbd6a
-
-function get_volume {
-  pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | cut -f 2 -d '/' | cut -d '%' -f 1 | xargs
+function print_error
+{
+cat << "EOF"
+    ./volumecontrol.sh -[device] <action>
+    ...valid device are...
+        i -- [i]nput decive
+        o -- [o]utput device
+    ...valid actions are...
+        i -- <i>ncrease volume [+5]
+        d -- <d>ecrease volume [-5]
+        m -- <m>ute [x]
+EOF
 }
 
-function is_mute {
-  amixer get Master | grep '%' | grep -oE '[^ ]+$' | grep off > /dev/null
+function send_notification
+{
+    mute=`pamixer --get-mute`
+    if [ "$mute" == "false" ] ; then
+        dunstify "Muted" -r 91190 -t 800
+    else
+        vol=`pamixer --get-volume`
+        angle="$(( (($vol + 2 ) / 5) * 5 ))"
+        bar=$(seq --separator="─" "$(((vol - 1) / 4))" | sed 's/[0-9]//g')
+        space=$(seq --separator=" " "$(((100 - vol) / 4))" | sed 's/[0-9]//g')
+        dunstify "$vol% [$bar$space]" -r 91190 -t 800
+    fi
 }
 
-function send_notification {
-  iconSound="audio-volume-high"
-  iconMuted="audio-volume-muted"
-  if is_mute ; then
-    dunstify -i $iconMuted -r 2593 -u normal "Muted"
-  else
-    volume=$(get_volume)
-    # Make the bar with the special character ─ (it's not dash -)
-    # https://en.wikipedia.org/wiki/Box-drawing_character
-    bar=$(seq --separator="─" 0 "$(((volume - 1) / 4))" | sed 's/[0-9]//g')
-    space=$(seq --separator=" " 0 "$(((100 - volume) / 4))" | sed 's/[0-9]//g')
-    # Send the notification
-    dunstify -i $iconSound -r 2593 -u normal "|$bar$space| $volume%"
-  fi
-}
+# set device source
+while getopts io SetSrc
+do
+    case $SetSrc in
+    i) nsink=$(pamixer --list-sources | grep "_input." | head -1 | awk -F '" "' '{print $NF}' | sed 's/"//')
+        dvce="mic" ;;
+    o) nsink=$(pamixer --get-default-sink | grep "_output." | awk -F '" "' '{print $NF}' | sed 's/"//')
+        dvce="speaker" ;;
+    esac
+done
+
+if [ $OPTIND -eq 1 ] ; then
+    print_error
+fi
+
+
+# set device action
+
+shift $((OPTIND -1))
+step="${2:-5}"
 
 case $1 in
-  up)
-    # set the volume on (if it was muted)
-    amixer -D pipewire set Master on > /dev/null
-    # up the volume (+ 5%)
-    pactl set-sink-volume @DEFAULT_SINK@ +5% > /dev/null
-    send_notification
-    ;;
-  down)
-    amixer -D pipewire set Master on > /dev/null
-    pactl set-sink-volume @DEFAULT_SINK@ -5% > /dev/null
-    send_notification
-    ;;
-  mute)
-    # toggle mute
-    amixer -D pipewire set Master 1+ toggle > /dev/null
-    send_notification
-    ;;
+    i) pamixer -i ${step}
+        send_notification ;;
+    d) pamixer -d ${step}
+        send_notification ;;
+    m) pamixer -t
+        send_notification ;;
+    *) print_error ;;
 esac

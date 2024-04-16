@@ -1,42 +1,38 @@
 <h1 style="text-align: center;"> My -simple- dotfiles </h1>
 
-![](https://github.com/ElwannGuillemot/simply_dotfiles/blob/main/media/neutral.png?raw=true)
-![](https://github.com/ElwannGuillemot/simply_dotfiles/blob/main/media/neutral-2.png?raw=true)
-![](https://github.com/ElwannGuillemot/simply_dotfiles/blob/main/media/neofetch.png?raw=true)
+![](https://github.com/ElwannGuillemot/simply_dotfiles/blob/main/repo/neofetch.png?raw=true)
 
-# Getting Started<>
-To get started, you can copy the config files in this repository to your machine. To do that, you can follow these steps:
+# Getting Started
 
-1. Clone this repository
-```
+```sh
 git clone https://github.com/ElwannGuillemot/simply_dotfiles.git
 ```
 
-2. Now copy the files to your `.config` directory using this command
+```sh
+cd simply_dotfiles
+cp -r .config/* ~/.config
+cp -r .scripts ~            # Optional
+cp -r wallpapers ~/Pictures # Optional
 ```
-cp -r simply_dotfiles/.config/* ~/.config/ && cp -r simply_dotfiles/wallpapers ~/Pictures
-```
-
-3. Thats it! All your programs will be themed like the ones in the screenshot above. You can restart your PC just in case some apps don't reload the configs (like Dunst).
 
 # Dependencies (wip)
 Here's a list of (nearby) all the main dependencies I use with this config.
-```
-yay -S waybar-hyprland kitty tofi wofi dunst swww hyprshot imv nmtui nwg-look otf-font-awesome pamixer pavucontrol starship thunar wf-recorder wlogout wlsunset wofi-emoji brightnessctl xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
+```sh
+paru -S eww swww rofi wl-clipboard # !! not finished !!
 ```
 
 # What I use
-**Operating System** - [EndeavourOS](https://endeavouros.com) (arch based)
+**Operating System** - [Arch](https://archlinux.org/) btw
 
 **Window Manager** - [Hyprland](https://hyprland.org)
 
-**App Launcher** - [Tofi](https://github.com/philj56/tofi)
+**App Launcher** - [Rofi](https://github.com/philj56/tofi)
 
-**Status Bar** - [Waybar](https://github.com/Alexays/Waybar)
+**Status Bar** - [eww](https://github.com/elkowar/eww)
 
 **Terminal** - [Kitty](https://github.com/kovidgoyal/kitty)
 
-**Text Editor** - [NeoVim](https://neovim.io) / [Code - Oss](https://github.com/microsoft/vscode)
+**Text Editor** - [Codium](https://vscodium.com/)
 
 **Notifications** - [Dunst](https://dunst-project.org)
 
