@@ -18,6 +18,10 @@ function handle() {
   width=$1
   height=$2
 
+  bash ~/.config/ags/shared/scripts/sidebar.sh close
+  bash ~/.config/ags/shared/scripts/changemode.sh normal
+  bash ~/.config/ags/shared/scripts/wallpapers.sh close
+
   if [ $floating == "false" ]; then
     toggle $width $height
   else
@@ -26,6 +30,6 @@ function handle() {
 }
 
 case $window in
-  kitty) handle "60%" "75%" ;;
+  kitty) handle "45%" "50%" ;;
   *) handle "75%" "80%" ;;
 esac
